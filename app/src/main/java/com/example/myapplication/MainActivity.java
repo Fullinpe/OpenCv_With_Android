@@ -180,14 +180,14 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
     {
         super.onResume();
 
-        if(OpenCVLoader.initDebug())
+        if(!OpenCVLoader.initDebug())
         {
-            Log.i(BATTERY_SERVICE, "Opencv successfully loaded");
-            mLoaderCallBack.onManagerConnected(LoaderCallbackInterface.SUCCESS);
+            Log.d("TO_MGR", "Opencv not loaded");
+            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION, this, mLoaderCallBack);
         }
         else{
-            Log.d(BATTERY_SERVICE, "Opencv not loaded");
-            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION, this, mLoaderCallBack);
+            Log.i("TO_MGR", "Opencv successfully loaded");
+            mLoaderCallBack.onManagerConnected(LoaderCallbackInterface.SUCCESS);
         }
 
     }

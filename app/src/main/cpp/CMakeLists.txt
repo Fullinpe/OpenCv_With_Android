@@ -24,11 +24,7 @@ else(OpenCV_FOUND)
     message(FATAL_ERROR "OpenCV library not found")
 endif(OpenCV_FOUND)
 
-#add_library(opencv_java3 SHARED IMPORTED)
-#set_target_properties(opencv_java3 #指定目标库名称
-#        PROPERTIES IMPORTED_LOCATION #指明要设置的参数
-#        ${CMAKE_CURRENT_SOURCE_DIR}/jniLibs/${ANDROID_ABI}/libopencv_java3.so #设定导入库的路径
-#        )
+
 ##-------------------------------------
 
 add_library( # Sets the name of the library.
